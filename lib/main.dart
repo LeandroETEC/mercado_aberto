@@ -1,4 +1,7 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MyApp());
@@ -73,7 +76,9 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        leading: IconButton(onPressed: () {}, icon: Icon(Icons.menu)) ,title: TextField( obscureText: true, decoration: InputDecoration(border: OutlineInputBorder(), labelText: "Bora pesquisar?")), actions: <Widget>[
+          IconButton(onPressed: () {}, icon: Icon(Icons.done_rounded))
+        ],  backgroundColor: Color.fromARGB(255, 211, 224, 30),
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
@@ -94,22 +99,11 @@ class _MyHomePageState extends State<MyHomePage> {
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+        
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+    
+       // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
