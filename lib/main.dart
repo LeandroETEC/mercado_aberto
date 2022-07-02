@@ -76,32 +76,23 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        leading: IconButton(onPressed: () {}, icon: Icon(Icons.menu)) ,title: TextField( obscureText: true, decoration: InputDecoration(border: OutlineInputBorder(), labelText: "Bora pesquisar?")), actions: <Widget>[
+        leading: IconButton(onPressed: () {}, icon: Icon(Icons.menu)) ,
+        title: TextField( obscureText: true, 
+        decoration: InputDecoration(border: OutlineInputBorder(), labelText: "Bora pesquisar?")), 
+        
+        actions: <Widget>[
           IconButton(onPressed: () {}, icon: Icon(Icons.done_rounded))
         ],  backgroundColor: Color.fromARGB(255, 211, 224, 30),
+        bottom:  PreferredSize(
+        preferredSize: const Size.fromHeight(80.0) /*aumentar esse valor aumenta o tamamnho da barra*/ , child: Text("teste"),),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-        
-        ),
-      ),
+      body: Row(children: [
+        //tendi +/-, mas o expanded faz com q pegue o espaço disponivel
+       Expanded(child: Text("Linha 1", textAlign: TextAlign.center),) ,
+       Expanded(child: Text("Linha 2",textAlign: TextAlign.center),) ,
+       Expanded(child: Text("Linha 3",textAlign: TextAlign.center),
+) 
+      ],)
     
        // This trailing comma makes auto-formatting nicer for build methods.
     );
