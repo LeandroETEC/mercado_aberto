@@ -77,22 +77,43 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         leading: IconButton(onPressed: () {}, icon: Icon(Icons.menu)) ,
-        title: TextField( obscureText: true, 
+        title: TextField( obscureText: false, 
         decoration: InputDecoration(border: OutlineInputBorder(), labelText: "Bora pesquisar?")), 
         
         actions: <Widget>[
           IconButton(onPressed: () {}, icon: Icon(Icons.done_rounded))
-        ],  backgroundColor: Color.fromARGB(255, 211, 224, 30),
-        bottom:  PreferredSize(
+        ],  backgroundColor:  Colors.yellow
+       , bottom:  PreferredSize(
         preferredSize: const Size.fromHeight(80.0) /*aumentar esse valor aumenta o tamamnho da barra*/ , child: Text("teste"),),
       ),
-      body: Row(children: [
-        //tendi +/-, mas o expanded faz com q pegue o espaço disponivel
-       Expanded(child: Text("Linha 1", textAlign: TextAlign.center),) ,
-       Expanded(child: Text("Linha 2",textAlign: TextAlign.center),) ,
-       Expanded(child: Text("Linha 3",textAlign: TextAlign.center),
-) 
-      ],)
+      body:
+        Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter, end: Alignment.bottomCenter,
+                 colors: <Color>[
+                Color(0xfff5d415),
+                Color(0xfff5f5f5),
+              ]
+              )
+            ),
+          child: Container(            
+            child: Row(
+              children: [
+          //tendi +/-, mas o expanded faz com q pegue o espaço disponivel
+                Expanded(child: Text("Linha 1", textAlign: TextAlign.center),) ,
+                Expanded(child: Text("Linha 2",textAlign: TextAlign.center),) ,
+                Expanded(child: Text("Linha 3",textAlign: TextAlign.center),) 
+      ],
+      )
+      
+      
+      
+      ),
+        ),
+      
     
        // This trailing comma makes auto-formatting nicer for build methods.
     );
