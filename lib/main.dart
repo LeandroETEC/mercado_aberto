@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'components/campoPesquisa.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
@@ -38,60 +40,34 @@ class _MyHomePageState extends State<MyHomePage> {
         toolbarHeight: 86,
         elevation: 0,
         backgroundColor: Color(0xffffdb15),
-        leading: Padding(
-          padding: const EdgeInsets.only(top: 5),
-          child: IconButton(
-            onPressed: () => Scaffold.of(context).openDrawer(),
-            icon: const Icon(
-              Icons.menu,
-              color: Colors.black,
-              size: 32,
-            ),
-          ),
-        ),
         actions: [
-          Container(
-            width: MediaQuery.of(context).size.width - 110,
-            padding: const EdgeInsets.only(top: 10),
-            child: TextField(
-              onSubmitted: (test) => {},
-              decoration: const InputDecoration(
-                isDense: true,
-                contentPadding: EdgeInsets.only(top: 5),
-                filled: true,
-                fillColor: Colors.white,
-                hintText: "Buscar no Mercado Aberto",
-                prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color(0xffffdb15),
-                    width: 0,
-                  ),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(30.0),
-                  ),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color(0xffffdb15),
-                    width: 0,
-                  ),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(30.0),
-                  ),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color(0xffffdb15),
-                    width: 0,
-                  ),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(30.0),
+           Row(
+          children: [
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 5),
+                child: IconButton(
+                  onPressed: () => Scaffold.of(context).openDrawer(),
+                  icon: const Icon(
+                    Icons.menu,
+                    color: Colors.black,
+                    size: 32,
                   ),
                 ),
               ),
             ),
-          ),
+          Container(
+            width: MediaQuery.of(context).size.width - 100,
+            //o bagui ta pegando o tamanho da tela e retirando o tamanho dos outros icones pra definir o width da 
+            //box como toda a tela menos o tamanho dos icones, resultando em uma area com tamanho variavel
+            //pois ao ser expanded o tamanho do conteudo se alterara para atender ao tamanho dado
+            child: Row(
+              children: [
+                campoPesquisa(),
+               
+              ],
+            )
+            ),
           Padding(padding: EdgeInsets.all(6)),
           Padding(
             padding: EdgeInsets.only(top: 10),
@@ -102,6 +78,8 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           Padding(padding: EdgeInsets.all(6)),
+                  ],
+        ),
         ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(4.0),
